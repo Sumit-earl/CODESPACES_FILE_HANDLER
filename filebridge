@@ -1,0 +1,21 @@
+#!/usr/bin/env python3
+"""Single-command entry point for FileBridge.
+
+    ./filebridge              # start with safe defaults, zero questions
+    ./filebridge setup        # answer a few questions instead
+    ./filebridge --help
+
+No install, no build step, no third-party packages: it runs on the Python 3
+that already exists in any Codespace image.
+"""
+
+import os
+import sys
+
+HERE = os.path.dirname(os.path.realpath(__file__))
+sys.path.insert(0, os.path.join(HERE, "tools"))
+
+from filebridge.cli import main  # noqa: E402
+
+if __name__ == "__main__":
+    sys.exit(main())
